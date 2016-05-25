@@ -1,0 +1,50 @@
+<div ng-controller="HomeController">
+    <h1>Hola, Dundo</h1>
+    <div class="row">
+        <input type="button" ng-click="getIngredients()" value="Fetch Ingredients!" ng-show="isRegular() || isAdmin()">
+    </div>
+    <div class="row" ng-show="isAdmin()">
+        <label for="Nombre Ingrediente">Nombre Ingrediente: </label>
+        <input type="text" name="NombreIngrediente" ng-model="ingredient.nombre">
+        <label for="Name">Descripcion Ingrediente: </label>
+        <input type="text" name="DescripcionIngrediente" ng-model="ingrediente.descripcion">
+	<label for="Developer">Developer: </label>
+	<input type="text" name="Developer" ng-model="game.developer">
+	<label for="Genre">Genre: </label>
+	<input type="text" name="Genre" ng-model="game.genre">
+        <input type="button" ng-click="postIngredients()" value="Post to /ingredients!">
+	<input type="button" ng-click="deleteIngredients()" value="Delete to /ingredients!">
+    </div>
+    <div ng-show="isAdmin() || isRegular()">
+      <table class="table table-striped">
+        <tr>
+          <th>
+            Nombre
+          </th>
+          <th>
+            Descripcion
+          </th>
+	  <th>
+	    Developer
+	  </th>	
+	  <th>
+	    Genre
+	  </th>
+        </tr>
+        <tr ng-repeat="game in games">
+          <td>
+            {{ingredient.nombre}}
+          </td>
+          <td>
+            {{ingredient.descripcion}}
+          </td>
+	  <td>
+	    {{game.developer}}
+	  </td>
+	  <td>
+	    {{game.genre}}
+	  </td>
+        </tr>
+      </table>
+    </div>
+</div>
